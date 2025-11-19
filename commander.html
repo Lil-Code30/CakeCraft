@@ -68,9 +68,99 @@
         </div>
       </div>
     </nav>
-    <main class="p-2 bg-light">
-      <section id="order-section" class="container my-4 p-4">
-        <!-- Content for the online ordering page goes here -->
+    <main class="p-2 bg-light d-flex justify-content-center align-items-center">
+      <section
+        id="order-section"
+        class="container my-4 d-flex flex-column flex-md-row justify-content-around gap-md-1 gap-4"
+      >
+        <div class="border border-3 rounded-4 p-2 bg-white">
+          <!-- <img src="./assets/images/creme_fouettee.png" alt="" /> -->
+          <img src="./assets/images/base_vanille_glacage_fraise.png" alt="" />
+        </div>
+        <div>
+          <h2 class="text-center mb-4 parisienne-regular fs-2 fw-bold">
+            <span><i class="fa-solid fa-cart-shopping fs-2"></i></span> Passez
+            votre commande
+          </h2>
+          <form
+            id="order-form"
+            class="d-flex flex-column gap-3 w-100 border border-2 rounded-4 p-3"
+          >
+            <div class="form-group">
+              <label
+                for="base-cake"
+                class="form-label caveat-brush-regular fs-5"
+                >Saveur de base:</label
+              >
+              <select id="base-cake" class="form-select w-md-50" required>
+                <option value="" disabled selected>
+                  Choisissez une saveur
+                </option>
+                <option value="chocolat">Chocolat</option>
+                <option value="vanille">Vanille</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label
+                for="cake-flavor"
+                class="form-label caveat-brush-regular fs-5"
+                >Saveur de glaçage:</label
+              >
+              <select id="cake-flavor" class="form-select w-md-50" required>
+                <option value="" disabled selected>
+                  Choisissez une saveur
+                </option>
+                <option value="vanille">Vanille</option>
+                <option value="chocolat">Chocolat</option>
+                <option value="fraise">Fraise</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <input type="checkbox" name="whipped-cream" id="whipped-cream" />
+              <label for="whipped-cream" class="caveat-brush-regular fs-5"
+                >Crème fouettée</label
+              >
+            </div>
+            <div class="form-group">
+              <input type="checkbox" name="cherry" id="cherry" />
+              <label for="cherry" class="caveat-brush-regular fs-5"
+                >Cerise</label
+              >
+            </div>
+            <section
+              class="d-flex flex-column w-100 flex-md-row justify-content-around align-items-center gap-3"
+            >
+              <div class="form-group w-md-50 w-100">
+                <label for="name" class="caveat-brush-regular fs-5">
+                  Nom et prénom:</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="form-control w-100"
+                  required
+                />
+              </div>
+              <div class="form-group w-md-50 w-100">
+                <label for="address" class="caveat-brush-regular fs-5">
+                  Adresse :</label
+                >
+                <input
+                  type="text"
+                  id="address"
+                  name="address"
+                  class="form-control w-100"
+                  required
+                />
+              </div>
+            </section>
+            <div>
+              <button type="reset" class="btn btn-danger">Annuler</button>
+              <button type="submit" class="btn btn-success">Commander</button>
+            </div>
+          </form>
+        </div>
       </section>
     </main>
     <footer>
