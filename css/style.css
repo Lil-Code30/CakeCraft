@@ -19,6 +19,9 @@ body {
   min-height: 100vh;
   background-color: #fde8eb;
 }
+main {
+  flex: 1;
+}
 #home-main {
   flex: 1;
   background-image: url("../assets/bg-img.jpg");
@@ -72,6 +75,8 @@ body {
 }
 .nav-link {
   transition: all 0.3s ease;
+  letter-spacing: 0.3px;
+  font-size: large;
 }
 .nav-link.active,
 .nav-link:hover {
