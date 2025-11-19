@@ -1,0 +1,84 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #fde8eb;
+}
+#home-main {
+  flex: 1;
+  background-image: url("../assets/bg-img.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+}
+.custom-pink {
+  color: #ed2266;
+}
+.custom-pink-bg {
+  background-color: #ed2266;
+  color: white;
+  border: 1px solid #ed2266;
+  transition: all 0.3s ease;
+}
+.custom-pink-bg:hover {
+  color: #ed2266;
+  background-color: white;
+  border: 1px solid #ed2266;
+}
+
+.btn-custom-pink {
+  background-color: #ed2266;
+  color: white;
+  border: 2px solid #ed2266;
+  transition: all 0.3s ease;
+}
+
+.btn-custom-pink:hover {
+  background-color: transparent;
+  color: #ed2266;
+  border: 2px solid #ed2266;
+}
+
+.parisienne-regular {
+  font-family: "Parisienne", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+.oi-regular {
+  font-family: "Oi", serif;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 5px;
+}
+.caveat-brush-regular {
+  font-family: "Caveat Brush", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+.nav-link {
+  transition: all 0.3s ease;
+}
+.nav-link.active,
+.nav-link:hover {
+  font-weight: bold;
+  color: #ed2266 !important;
+}
+
+footer {
+  margin-top: auto;
+}
