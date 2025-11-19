@@ -50,22 +50,17 @@ Ce travail vise à nous familiariser avec :
 
 ```
 CakeCraft/
-│── index.html
-│── commande.html
-│── historique.html
-│── traitement.js
-│── commandes.json
-│
-├── images/
-│   └── (images des ingrédients du gâteau)
-│
-├── scripts/
-│   ├── main.js
-│   ├── commande.js
-│   └── historique.js
-│
-└── styles/
-    └── style.css (optionnel)
+├─ index.html
+├─ commander.html
+├─ historique.html
+├─ README.md
+├─ assets/
+│  └─ images/
+├─ css/
+│  ├─ history.css
+│  └─ style.css
+└─ js/
+   └─ history.js
 ```
 
 ---
