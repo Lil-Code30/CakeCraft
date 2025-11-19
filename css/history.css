@@ -1,0 +1,44 @@
+/* Order card styles */
+.order-card {
+  border: none;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+.order-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+.order-card-header {
+  background: linear-gradient(90deg, #fff0f3 0%, #fff 60%);
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+.order-thumb {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  background: radial-gradient(circle at 30% 30%, #ffeff4, #ffdfe9);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+.order-price-badge {
+  font-weight: 700;
+  background: #ed2266;
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.35rem 0.6rem;
+}
+.supp-badge {
+  background: #f8d7e0;
+  color: #b21f56;
+  border-radius: 999px;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8rem;
+}
+.card-body .list-unstyled li {
+  padding: 0.18rem 0;
+}
