@@ -82,8 +82,9 @@ creamImg.id = "cream-image";
 
 // ajout ou suppression de la crème fouettée
 creamCheckbox.addEventListener("change", () => {
+  const selectedBase = baseCake.value;
   if (creamCheckbox.checked) {
-    if (!cakeImage.src) {
+    if (selectedBase === "") {
       alert("Veuillez d'abord sélectionner une base de gâteau.");
       creamCheckbox.checked = false;
       return;
@@ -108,8 +109,9 @@ cherryImg.id = "cherry-image";
 
 // ajout ou suppression de la cerise
 cherryCheckbox.addEventListener("change", () => {
+  const selectedBase = baseCake.value;
   if (cherryCheckbox.checked) {
-    if (!cakeImage.src) {
+    if (selectedBase === "") {
       alert("Veuillez d'abord sélectionner une base de gâteau.");
       cherryCheckbox.checked = false;
       return;
@@ -145,14 +147,24 @@ orderForm.addEventListener("submit", (event) => {
   let createdAt = new Date().toISOString();
 
   const formData = new FormData(orderForm);
-  formData.append("id", seedCommandeId);
-  formData.append("date", createdAt);
-  console.log(formData);
 
-  const commande = {};
+  const commande = {
+    id: seedCommandeId,
+    base: formData.get("base"),
+    glacage: formData.get("glacage"),
+    creme: formData.get("creme") ? "oui" : "non",
+    cerise: formData.get("cerise") ? "oui" : "non",
+    date: createdAt,
+    nom: formData.get("nom"),
+    adresse: formData.get("adresse"),
+  };
 
-  console.log("Données du formulaire soumises :");
-  for (const [key, value] of formData.entries()) {
-    console.log(`${key}: ${value}`);
-  }
+  console.log("Commande créée :", commande);
+
+  alert("Votre commande a été enregistrée avec succès !");
+  orderForm.reset();
+  cakeImage.src = "";
+  cakeImage.alt = "";
+  creamImg.style.display = "none";
+  cherryImg.style.display = "none";
 });
