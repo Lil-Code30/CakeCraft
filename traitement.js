@@ -22,6 +22,14 @@ function writeData(data) {
 
 // Création du serveur HTTP
 const server = http.createServer((req, res) => {
+  // Allow ALL origins : CORS policy
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PUT, DELETE, OPTIONS"
+  );
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
   // ---------------------------------------------
   // GET /commandes  -> Lire toutes les commandes
   // ---------------------------------------------
