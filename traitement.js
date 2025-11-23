@@ -5,8 +5,10 @@ const PORT = 8001;
 const HOSTNAME = "127.0.0.1";
 const FILE = "./commandes.json";
 
-//  Identifiant de commande initial
-let seedCommandeId = 1234567890;
+//  Simple Unique ID
+function uniqueId() {
+  return Date.now();
+}
 
 // lire le fichiers json
 function readData() {
@@ -32,17 +34,16 @@ const server = http.createServer((req, res) => {
   // ------------------------------------------------
   // POST /commande  -> Créer une nouvelle commande
   // ------------------------------------------------
-  if (req.method === "POST" && req.url === "/commande") {
+  else if (req.method === "POST" && req.url === "/commande") {
     let body = "";
     req.on("data", (chunk) => {
       body += chunk.toString();
     });
     req.on("end", () => {
-      seedCommandeId += 1;
       let createdAt = new Date().toISOString();
 
       const newOrder = JSON.parse(body);
-      newOrder.id = seedCommandeId;
+      newOrder.id = uniqueId();
       newOrder.date = createdAt;
 
       // calcul du prix total
@@ -62,16 +63,15 @@ const server = http.createServer((req, res) => {
       writeData(data);
       res.statusCode = 201;
       res.setHeader("Content-Type", "application/json");
-      return res.end(
-        JSON.stringify({ message: "Commande ajoutée avec succès" })
-      );
+      res.end(JSON.stringify({ message: "Commande ajoutée avec succès" }));
+      return;
     });
   }
 
   // -------------------------------------------------------------
   // DELETE /commande/:id  -> Supprimer une commande existante
   // -------------------------------------------------------------
-  if (req.method === "DELETE") {
+  else if (req.method === "DELETE") {
     res.setHeader("Content-Type", "application/json");
     res.statusCode = 200;
 
@@ -85,18 +85,21 @@ const server = http.createServer((req, res) => {
 
     if (filteredData.length === data.length) {
       res.statusCode = 404;
-      return res.end(JSON.stringify({ error: "Commande introuvable" }));
+      res.end(JSON.stringify({ error: "Commande introuvable" }));
+      return;
     }
 
     writeData(filteredData);
 
-    return res.end(JSON.stringify({ message: "Commande supprimée" }));
+    res.end(JSON.stringify({ message: "Commande supprimée" }));
+    return;
+  } else {
+    // Route inconnue
+    res.statusCode = 404;
+    res.setHeader("Content-Type", "application/json");
+    res.end(JSON.stringify({ error: "Route non trouvée" }));
+    return;
   }
-
-  // Route inconnue
-  res.statusCode = 404;
-  res.setHeader("Content-Type", "application/json");
-  res.end(JSON.stringify({ error: "Route non trouvée" }));
 });
 
 // Démarrage du serveur
