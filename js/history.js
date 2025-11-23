@@ -2,32 +2,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   const ordersRow = document.getElementById("ordersRow");
   const noOrders = document.getElementById("no-orders");
 
-  // Static fallback data so the page works without a server.
-  const sampleOrders2 = [
-    {
-      id: 1,
-      base: "vanille",
-      glacage: "chocolat",
-      creme: "oui",
-      cerise: "non",
-      date: "2025-10-20T14:30:00.000Z",
-      nom: "Pierre Martin",
-      adresse: "1595 boulevard Alphonse-Desjardins, Lévis",
-      prixTotal: 32.5,
-    },
-    {
-      id: 2,
-      base: "chocolat",
-      glacage: "vanille",
-      creme: "non",
-      cerise: "oui",
-      date: "2025-11-05T09:15:00.000Z",
-      nom: "Sophie Dubois",
-      adresse: "42 rue des Fleurs, Montréal",
-      prixTotal: 28.0,
-    },
-  ];
-
   let allOrders;
 
   try {
@@ -38,7 +12,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       },
     });
     allOrders = await response.json();
-    console.log(allOrders);
+    // console.log(allOrders);
 
     function createCard(order) {
       const col = document.createElement("div");
@@ -118,8 +92,24 @@ document.addEventListener("DOMContentLoaded", async () => {
       del.textContent = "Supprimer";
       del.setAttribute("data-id", order.id);
 
-      del.addEventListener("click", () => {
-        // soon..
+      del.addEventListener("click", async () => {
+        try {
+          const response = await fetch(
+            `http://127.0.0.1:8001/commande/${order.id}`,
+            {
+              method: "DELETE",
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+          const result = await response.json();
+          alert("Commande supprimée");
+          // console.log(result);
+          // location.reload();
+        } catch (err) {
+          alert(err);
+        }
       });
 
       btnGroup.appendChild(del);
