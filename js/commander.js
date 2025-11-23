@@ -139,7 +139,7 @@ resetBtn.addEventListener("click", () => {
 });
 
 // Gestion de la soumission du formulaire
-orderForm.addEventListener("submit", (event) => {
+orderForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const formData = new FormData(orderForm);
@@ -153,12 +153,28 @@ orderForm.addEventListener("submit", (event) => {
     adresse: formData.get("adresse"),
   };
 
-  console.log("Commande créée :", commande);
+  // envoi commande au backend
+  try {
+    const response = await fetch("http://127.0.0.1:8001/commande", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(commande),
+    });
 
-  alert("Votre commande a été enregistrée avec succès !");
-  orderForm.reset();
-  cakeImage.src = "";
-  cakeImage.alt = "";
-  creamImg.style.display = "none";
-  cherryImg.style.display = "none";
+    const result = await response.json();
+
+    console.log("Commande créée :", result);
+
+    alert("Votre commande a été enregistrée avec succès !");
+    orderForm.reset();
+    cakeImage.src = "";
+    cakeImage.alt = "";
+    creamImg.style.display = "none";
+    cherryImg.style.display = "none";
+  } catch (err) {
+    alert(err);
+    console.log("Error sending data: ", err);
+  }
 });

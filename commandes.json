@@ -20,5 +20,16 @@
     "nom": "Sophie Dubois",
     "adresse": "42 rue des Fleurs, Montréal",
     "prixTotal": 28
+  },
+  {
+    "base": "chocolat",
+    "glacage": "vanille",
+    "creme": "oui",
+    "cerise": "oui",
+    "nom": "Loko Ismael",
+    "adresse": "360 avenue Proulx",
+    "id": 1763928440411,
+    "date": "2025-11-23T20:07:20.411Z",
+    "prixTotal": 17
   }
 ]
