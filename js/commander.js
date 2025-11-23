@@ -138,33 +138,43 @@ resetBtn.addEventListener("click", () => {
   cherryImg.style.display = "none";
 });
 
-let seedCommandeId = 1234567890;
 // Gestion de la soumission du formulaire
-orderForm.addEventListener("submit", (event) => {
+orderForm.addEventListener("submit", async (event) => {
   event.preventDefault();
-
-  seedCommandeId += 1;
-  let createdAt = new Date().toISOString();
 
   const formData = new FormData(orderForm);
 
   const commande = {
-    id: seedCommandeId,
     base: formData.get("base"),
     glacage: formData.get("glacage"),
     creme: formData.get("creme") ? "oui" : "non",
     cerise: formData.get("cerise") ? "oui" : "non",
-    date: createdAt,
     nom: formData.get("nom"),
     adresse: formData.get("adresse"),
   };
 
-  console.log("Commande créée :", commande);
+  // envoi commande au backend
+  try {
+    const response = await fetch("http://127.0.0.1:8001/commande", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(commande),
+    });
 
-  alert("Votre commande a été enregistrée avec succès !");
-  orderForm.reset();
-  cakeImage.src = "";
-  cakeImage.alt = "";
-  creamImg.style.display = "none";
-  cherryImg.style.display = "none";
+    const result = await response.json();
+
+    console.log("Commande créée :", result);
+
+    alert("Votre commande a été enregistrée avec succès !");
+    orderForm.reset();
+    cakeImage.src = "";
+    cakeImage.alt = "";
+    creamImg.style.display = "none";
+    cherryImg.style.display = "none";
+  } catch (err) {
+    alert(err);
+    console.log("Error sending data: ", err);
+  }
 });

@@ -26,7 +26,8 @@
   border: 1px solid rgba(0, 0, 0, 0.03);
 }
 .order-price-badge {
-  font-weight: 700;
+  font-weight: 600;
+  font-size: small;
   background: #ed2266;
   color: #fff;
   border-radius: 999px;
