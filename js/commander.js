@@ -30,23 +30,23 @@ cakeFavor.addEventListener("change", (event) => {
   if (cakeImage.src) {
     switch (selectedFlavor) {
       case "vanille":
-        if (selectedBase === "base_vanille") {
+        if (selectedBase === "vanille") {
           flavorImageSrc = "./assets/images/base_vanille_glacage_vanille.png";
-        } else if (selectedBase === "base_chocolat") {
+        } else if (selectedBase === "chocolat") {
           flavorImageSrc = "./assets/images/base_chocolat_glacage_vanille.png";
         }
         break;
       case "chocolat":
-        if (selectedBase === "base_vanille") {
+        if (selectedBase === "vanille") {
           flavorImageSrc = "./assets/images/base_vanille_glacage_chocolat.png";
-        } else if (selectedBase === "base_chocolat") {
+        } else if (selectedBase === "chocolat") {
           flavorImageSrc = "./assets/images/base_chocolat_glacage_chocolat.png";
         }
         break;
       case "fraise":
-        if (selectedBase === "base_vanille") {
+        if (selectedBase === "vanille") {
           flavorImageSrc = "./assets/images/base_vanille_glacage_fraise.png";
-        } else if (selectedBase === "base_chocolat") {
+        } else if (selectedBase === "chocolat") {
           flavorImageSrc = "./assets/images/base_chocolat_glacage_fraise.png";
         }
         break;
