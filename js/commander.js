@@ -98,3 +98,30 @@ creamCheckbox.addEventListener("change", () => {
     creamImg.style.display = "none";
   }
 });
+
+// Création de l'élément image pour la cerise
+const cherryImg = document.createElement("img");
+cherryImg.src = "./assets/images/cerise.png";
+cherryImg.id = "cherry-image";
+
+// ajout ou suppression de la cerise
+cherryCheckbox.addEventListener("change", () => {
+  if (cherryCheckbox.checked) {
+    if (!cakeImage.src) {
+      alert("Veuillez d'abord sélectionner une base de gâteau.");
+      cherryCheckbox.checked = false;
+      return;
+    }
+
+    cakeContainer.style.position = "relative";
+    cherryImg.style.position = "absolute";
+    cherryImg.style.top = "-5px";
+    cherryImg.style.zIndex = "1";
+    cherryImg.style.display = "block";
+    cherryImg.style.width = "50px";
+    cherryImg.style.height = "50px";
+    cakeContainer.appendChild(cherryImg);
+  } else {
+    cherryImg.style.display = "none";
+  }
+});
