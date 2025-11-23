@@ -4,6 +4,7 @@ const cakeFavor = document.getElementById("cake-flavor");
 const creamCheckbox = document.getElementById("whipped-cream");
 const cherryCheckbox = document.getElementById("cherry");
 const resetBtn = document.getElementById("reset-btn");
+const orderForm = document.getElementById("order-form");
 
 // Création de l'élément image pour le gâteau
 const cakeImage = document.createElement("img");
@@ -133,4 +134,25 @@ resetBtn.addEventListener("click", () => {
   cakeImage.alt = "";
   creamImg.style.display = "none";
   cherryImg.style.display = "none";
+});
+
+let seedCommandeId = 1234567890;
+// Gestion de la soumission du formulaire
+orderForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  seedCommandeId += 1;
+  let createdAt = new Date().toISOString();
+
+  const formData = new FormData(orderForm);
+  formData.append("id", seedCommandeId);
+  formData.append("date", createdAt);
+  console.log(formData);
+
+  const commande = {};
+
+  console.log("Données du formulaire soumises :");
+  for (const [key, value] of formData.entries()) {
+    console.log(`${key}: ${value}`);
+  }
 });
