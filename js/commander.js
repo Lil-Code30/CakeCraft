@@ -11,10 +11,10 @@ baseCake.addEventListener("change", (event) => {
 
   let baseImageSrc = "";
   switch (selectedBase) {
-    case "base_vanille":
+    case "vanille":
       baseImageSrc = "./assets/images/base_vanille.png";
       break;
-    case "base_chocolat":
+    case "chocolat":
       baseImageSrc = "./assets/images/base_chocolat.png";
       break;
   }
