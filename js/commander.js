@@ -3,6 +3,7 @@ const cakeContainer = document.getElementById("cake-position-container");
 const cakeFavor = document.getElementById("cake-flavor");
 const creamCheckbox = document.getElementById("whipped-cream");
 const cherryCheckbox = document.getElementById("cherry");
+const resetBtn = document.getElementById("reset-btn");
 
 // Création de l'élément image pour le gâteau
 const cakeImage = document.createElement("img");
@@ -124,4 +125,12 @@ cherryCheckbox.addEventListener("change", () => {
   } else {
     cherryImg.style.display = "none";
   }
+});
+
+// Réinitialisation du formulaire et de l'image du gâteau
+resetBtn.addEventListener("click", () => {
+  cakeImage.src = "";
+  cakeImage.alt = "";
+  creamImg.style.display = "none";
+  cherryImg.style.display = "none";
 });

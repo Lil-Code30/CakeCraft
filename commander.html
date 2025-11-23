@@ -98,7 +98,12 @@
                 class="form-label caveat-brush-regular fs-5"
                 >Saveur de base:</label
               >
-              <select id="base-cake" class="form-select w-md-50" required>
+              <select
+                id="base-cake"
+                name="baseCake"
+                class="form-select w-md-50"
+                required
+              >
                 <option value="" disabled selected>
                   Choisissez une saveur
                 </option>
@@ -112,7 +117,12 @@
                 class="form-label caveat-brush-regular fs-5"
                 >Saveur de glaçage:</label
               >
-              <select id="cake-flavor" class="form-select w-md-50" required>
+              <select
+                id="cake-flavor"
+                name="flavourCake"
+                class="form-select w-md-50"
+                required
+              >
                 <option value="" disabled selected>
                   Choisissez une saveur
                 </option>
@@ -164,7 +174,9 @@
             <div
               class="d-flex flex-column flex-md-row justify-content-around mt-3 gap-3"
             >
-              <button type="reset" class="btn btn-danger w-100">Annuler</button>
+              <button type="reset" id="reset-btn" class="btn btn-danger w-100">
+                Annuler
+              </button>
               <button type="submit" class="btn btn-success w-100">
                 Commander
               </button>
