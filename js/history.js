@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
       date: "2025-10-20T14:30:00.000Z",
       nom: "Pierre Martin",
       adresse: "1595 boulevard Alphonse-Desjardins, Lévis",
-      prix: 32.5,
+      prixTotal: 32.5,
     },
     {
       id: 2,
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
       date: "2025-11-05T09:15:00.000Z",
       nom: "Sophie Dubois",
       adresse: "42 rue des Fleurs, Montréal",
-      prix: 28.0,
+      prixTotal: 28.0,
     },
   ];
 
@@ -71,7 +71,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const priceBadge = document.createElement("div");
     priceBadge.className = "order-price-badge";
-    priceBadge.textContent = order.prix !== undefined ? `${order.prix} €` : "—";
+    priceBadge.textContent =
+      order.prixTotal !== undefined ? `${order.prixTotal} €` : "—";
 
     header.appendChild(left);
     header.appendChild(priceBadge);
