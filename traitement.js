@@ -30,6 +30,12 @@ const server = http.createServer((req, res) => {
   );
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
+  // respond to CORS preflight
+  if (req.method === "OPTIONS") {
+    res.statusCode = 204;
+    return res.end();
+  }
+
   // ---------------------------------------------
   // GET /commandes  -> Lire toutes les commandes
   // ---------------------------------------------
