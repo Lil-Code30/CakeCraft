@@ -138,7 +138,9 @@ resetBtn.addEventListener("click", () => {
   cherryImg.style.display = "none";
 });
 
+//  Identifiant de commande initial
 let seedCommandeId = 1234567890;
+
 // Gestion de la soumission du formulaire
 orderForm.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -158,6 +160,17 @@ orderForm.addEventListener("submit", (event) => {
     nom: formData.get("nom"),
     adresse: formData.get("adresse"),
   };
+
+  // calcul du prix total
+  let totalPrice = 0;
+  let prixBase = commande.base === "chocolat" ? 11 : 10;
+  let prixGlacage = commande.glacage ? 3 : 0;
+  let prixCreme = commande.creme === "oui" ? 2 : 0;
+  let prixCerise = commande.cerise === "oui" ? 1 : 0;
+
+  totalPrice = prixBase + prixGlacage + prixCreme + prixCerise;
+
+  commande.prixTotal = totalPrice;
 
   console.log("Commande créée :", commande);
 
