@@ -1,11 +1,15 @@
 const baseCake = document.getElementById("base-cake");
-const cakeContainer = document.getElementById("cake-container");
+const cakeContainer = document.getElementById("cake-position-container");
 const cakeFavor = document.getElementById("cake-flavor");
+const creamCheckbox = document.getElementById("whipped-cream");
+const cherryCheckbox = document.getElementById("cherry");
 
+// Création de l'élément image pour le gâteau
 const cakeImage = document.createElement("img");
 cakeImage.id = "cake-image";
 cakeContainer.appendChild(cakeImage);
 
+// Met à jour l'image du gâteau en fonction de la base
 baseCake.addEventListener("change", (event) => {
   const selectedBase = event.target.value;
 
@@ -22,6 +26,7 @@ baseCake.addEventListener("change", (event) => {
   cakeImage.alt = `Base de gâteau ${selectedBase}`;
 });
 
+//  Met à jour l'image du gâteau en fonction de la saveur du glaçage
 cakeFavor.addEventListener("change", (event) => {
   const selectedFlavor = event.target.value;
 
@@ -65,5 +70,31 @@ cakeFavor.addEventListener("change", (event) => {
     alert("Veuillez d'abord sélectionner une base de gâteau.");
     cakeFavor.value = "";
     return;
+  }
+});
+
+// Création de l'élément image pour la crème fouettée
+const creamImg = document.createElement("img");
+creamImg.src = "./assets/images/creme_fouettee.png";
+creamImg.id = "cream-image";
+
+// ajout ou suppression de la crème fouettée
+creamCheckbox.addEventListener("change", () => {
+  if (creamCheckbox.checked) {
+    if (!cakeImage.src) {
+      alert("Veuillez d'abord sélectionner une base de gâteau.");
+      creamCheckbox.checked = false;
+      return;
+    }
+    cakeContainer.style.position = "relative";
+    creamImg.style.position = "absolute";
+    creamImg.style.top = "0";
+    // creamImg.style.left = "0";
+    creamImg.style.display = "block";
+    creamImg.style.width = "100px";
+    creamImg.style.height = "100px";
+    cakeContainer.appendChild(creamImg);
+  } else {
+    creamImg.style.display = "none";
   }
 });
