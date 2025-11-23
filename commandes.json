@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "base": "vanille",
+    "glacage": "chocolat",
+    "creme": "oui",
+    "cerise": "non",
+    "date": "2025-10-20T14:30:00.000Z",
+    "nom": "Pierre Martin",
+    "adresse": "1595 boulevard Alphonse-Desjardins, Lévis",
+    "prix": 32.5
+  },
+  {
+    "id": 2,
+    "base": "chocolat",
+    "glacage": "vanille",
+    "creme": "non",
+    "cerise": "oui",
+    "date": "2025-11-05T09:15:00.000Z",
+    "nom": "Sophie Dubois",
+    "adresse": "42 rue des Fleurs, Montréal",
+    "prix": 28.0
+  }
+]
