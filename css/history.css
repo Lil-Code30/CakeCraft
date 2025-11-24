@@ -3,6 +3,7 @@
   border: none;
   border-radius: 14px;
   overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.552);
   transition: transform 200ms ease, box-shadow 200ms ease;
 }
 .order-card:hover {
