@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       col.className = "col-12 col-md-6 col-lg-4";
 
       const card = document.createElement("div");
-      card.className = "card h-100 shadow-sm order-card";
+      card.className = "card h-100 shadow-sm border border-3 order-card";
 
       // Card Header
       const header = document.createElement("div");
