@@ -1,5 +1,7 @@
 # 🍰 CakeCraft – Site Web de Personnalisation et Commande de Gâteaux
 
+<img width="1386" height="790" alt="Screenshot 2026-05-11 at 10 50 20 AM" src="https://github.com/user-attachments/assets/95f954ed-4cbd-4d2d-a0a2-6676614e1fba" />
+
 Projet – Introduction à l’Internet (INF16107)
 Travail Pratique 2
 
